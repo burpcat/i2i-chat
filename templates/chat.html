@@ -52,7 +52,6 @@
             socket.on('receive_message', function(data){
             console.log(data);
             const newNode = document.createElement('div');
-            {#newNode.innerHTML = `<b>${data.username}</b>:<&nbsp> $(data.message)`;#}
             newNode.innerHTML = `<b>${data.username}</b> : ${data.message}`;
             document.getElementById('messages').appendChild(newNode);
 

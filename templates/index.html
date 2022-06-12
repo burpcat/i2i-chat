@@ -7,6 +7,12 @@
 <body>
 
     <h1> My Chat App</h1>
+    <h3>Hi {% if current_user.is_authenticated %}
+            {{ current_user.username }}
+        {% else %}
+            Guest
+        {% endif %}
+    </h3>
     <form action ={{ url_for('chat')}}>     <! Sends all the form data to /chat>
         <div>
             <label>Enter Your Username</label>
