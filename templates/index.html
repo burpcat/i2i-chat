@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Chat App</title>
+</head>
+<body>
+
+    <h1> My Chat App</h1>
+    <form action ={{ url_for('chat')}}>     <! Sends all the form data to /chat>
+        <div>
+            <label>Enter Your Username</label>
+            <input type="text" name="username">
+        </div>
+
+        <div>
+            <label>Enter Your Room ID</label>
+            <input type="text" name="room_id">
+        </div>
+
+        <button type="submit">Submit</button>
+    </form>
+
+</body>
+</html>
