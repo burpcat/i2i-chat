@@ -13,19 +13,26 @@
             Guest
         {% endif %}
     </h3>
-    <form action ={{ url_for('chat')}}>     <! Sends all the form data to /chat>
-        <div>
-            <label>Enter Your Username</label>
-            <input type="text" name="username">
-        </div>
 
-        <div>
-            <label>Enter Your Room ID</label>
-            <input type="text" name="room_id">
-        </div>
+    {% if current_user.is_authenticated==False%}
+        <h3>Please login by clicking <a href="{{url_for('login')}}">here</a></h3>
 
-        <button type="submit">Submit</button>
-    </form>
+    {%else%}
+        <form action ={{ url_for('chat')}}>     <! Sends all the form data to /chat>
+                <div>
+                <label>Enter Your Username</label>
+                <input type="text" name="username">
 
+            </div>
+
+            <div>
+                <label>Enter Your Room ID</label>
+                <input type="text" name="room_id">
+            </div>
+
+            <button type="submit">Submit</button>
+        </form>
+
+    {% endif %}
 </body>
 </html>

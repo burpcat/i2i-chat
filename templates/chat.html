@@ -60,10 +60,11 @@
         socket.on('join_room_announcement', function(data){
             console.log(data);
             const newNode = document.createElement('div');
-            newNode.innerHTML = `<b>${data.username}</b> has joined the room`;
+            newNode.innerHTML = `<b>${data.username}</b> has joined the room - <b>${data.room_id}</b>`;
             document.getElementById('messages').appendChild(newNode);
         });
 
+        
 
 </script>
 
