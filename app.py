@@ -8,7 +8,7 @@ from db import get_user, save_user
 app = Flask(__name__)
 login_manager = LoginManager()
 login_manager.init_app(app)
-login_manager.login_view = 'login' # for the login required decorator, redirects to the route where to login
+login_manager.login_view = 'login'  # for the login required decorator, redirects to the route where to login
 
 socketio = SocketIO(app)  # Creating a SocketIO instance for the flask app
 
@@ -71,11 +71,13 @@ def login():
 
     return render_template('login.html', message=message)
 
+
 @app.route('/logout')
 @login_required
 def logout():
     logout_user()
     return redirect(url_for('home'))
+
 
 @app.route('/signup', methods=['GET', 'POST'])
 def signup():
@@ -89,7 +91,7 @@ def signup():
         email = request.form.get('email')
         password = request.form.get('password')
         try:
-            save_user(username,email,password)
+            save_user(username, email, password)
         except DuplicateKeyError:
             message = "User Exists"
 
